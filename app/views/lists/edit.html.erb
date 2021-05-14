@@ -1,14 +1,14 @@
 
+<%= content_for(:navbar_class, "navbar-home") %>
+
 <div class="container mt-5 width-200">
 <p><%= link_to "< Back to Lists", lists_path%></p>
   <div class="row d-flex justify-content-center">
     <div class="col-lg-4 text-center">
 
 <h1>Edit a List</h1>
+
 <%= render "form", list: @list %>
-<%= simple_form_for @list do |f| %>
-        <%= f.submit "Edit List", class: "btn border mt-3" %>
-      <% end %>
 
     </div>
   </div>

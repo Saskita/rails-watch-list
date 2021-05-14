@@ -18,3 +18,5 @@ document.addEventListener('turbolinks:load', () => {
   initTyped();
   // etc...
 });
+
+//= require select2

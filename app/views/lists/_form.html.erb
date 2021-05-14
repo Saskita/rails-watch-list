@@ -1,7 +1,8 @@
       <%= simple_form_for @list do |f| %>
         <%= f.input :name %>
-        <%# <%= f.input :image, as: :file, label: "Picture:" %>
+        <%= f.input :photo, as: :file, label: "Picture:" %>
+        <% button_text = @list.new_record? ? "Create List" : "Edit List"   %>
+        <%= f.submit button_text, class: "btn border mt-3" %>
 
-        <%# <%= f.submit "Create List", class: "btn border mt-3" %>
-      <% end %>
+      <% end%>
 

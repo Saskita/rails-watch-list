@@ -1,11 +1,14 @@
 class ListsController < ApplicationController
   def index
-    @lists = List.all
+    @lists = List.all.order('name ASC')
+    # @list = List.where(list_id: params[:id])
   end
 
   def show
     @list = List.find(params[:id])
     @bookmark = Bookmark.new
+    @bookmarks = Bookmark.where(list_id: params[:id])
+
   end
 
   def new
@@ -28,12 +31,19 @@ class ListsController < ApplicationController
   def update
     @list = List.find(params[:id])
     @list.update(list_params)
-    redirect_to lists_path(@list)
+    redirect_to lists_path
+  end
+
+  def destroy
+    @list = List.find(params[:id])
+    @list.destroy
+    # no need for app/views/restaurants/destroy.html.erb
+    redirect_to lists_path
   end
 
   private
 
   def list_params
-    params.require(:list).permit(:name)
+    params.require(:list).permit(:name, :photo)
   end
 end
