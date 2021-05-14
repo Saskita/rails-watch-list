@@ -1,0 +1,16 @@
+
+<div class="container mt-5 width-200">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-4 text-center">
+      <h1>MOVIES 🎥</h1>
+      <ul>
+        <% @movies.each do |movie| %>
+          <li class="d-flex justify-content-between">
+          <p class="text-left"><%= movie.title %></p>
+          <%= link_to "See details", movie_path(movie), class: "btn border"%>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

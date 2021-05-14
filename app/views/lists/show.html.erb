@@ -1,0 +1,34 @@
+<div class="pseudo-nav">
+  <p><%= link_to "< Back to List", lists_path(@list)%></p>
+  <p><%= link_to "🖌 Edit this List", edit_list_path %></p>
+</div>
+
+
+
+
+
+
+<%#///// form ////%>
+<div class="container mt-5 width-200">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-4">
+      <h2 class="mb-2">• <%= @list.name %></h2>
+      <%# <img src="https://i.picsum.photos/id/469/200/100.jpg?hmac=jWuBnvPX8QatuavvHzl27H5HcqUqHR1L02Wm-cEHWg0"> %>
+      <a class="btn btn-pin" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Create a Bookmark 📍</a>
+      <div class="row">
+        <div class="col">
+          <div class="collapse multi-collapse" id="multiCollapseExample1">
+            <div class="card card-body">
+                <%= simple_form_for([@list, @bookmark]) do |f| %>
+                    <%= f.association :movie %>
+                    <%= f.input :comment %>
+                    <%= f.submit "Create bookmark", class: "btn btn-pin border mt-3" %>
+                  <% end %>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+
